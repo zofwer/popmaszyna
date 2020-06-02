@@ -1,21 +1,30 @@
 # popmaszyna
-import sounddevice as sd
-import numpy as np
-import random
-fs = 44100
-tone_freq = 440
-A_sig = 2
-t = np.arange(0,0.8, 1/fs)
-signal = A_sig * np.sin(2 * np.pi * tone_freq * t)
-sd.play(signal, fs)
-sd.wait()
+from tkinter import *
+from pygame import mixer
 
-fs = 34100
-tone_freq =300
-A_sig = 10
-t = np.arange(0, 0.8, 1/fs)
-signal = A_sig * np.sin(4 * np.pi * tone_freq * t)
+mixer.init()
+glowne_okno = Tk()
+glowne_okno.geometry('500x500')
+glowne_okno.title("POPMASZYNA")
 
-sd.play(signal, fs)
-sd.wait()
-####nie wiem co
+
+nazwa = Label(glowne_okno, text = "Sample")
+nazwa.grid()
+
+def play_music1():
+    mixer.music.load(" ") #tu jest miejsce na sample
+    mixer.music.play()
+
+
+def play_music2():
+    mixer.music.load(" ") #tu jest miejsce na sample
+    mixer.music.play()
+
+
+przycisk_play1 = Button(glowne_okno, text = "pierwszy dźwięk", fg = "red",  command = play_music1)
+przycisk_play1.grid(row = 0, column = 0)
+przycisk_play2 = Button(glowne_okno, text = "drugi dźwięk", fg = "green", command = play_music2)
+przycisk_play2.grid(row = 2, column = 0)
+
+
+glowne_okno.mainloop()
