@@ -9,7 +9,7 @@ import numpy as np
 mixer.init()
 
 glowne_okno = Tk()
-glowne_okno.geometry('500x500')
+glowne_okno.geometry('500x700')
 glowne_okno.title("POPMASZYNA")
 
 
@@ -72,4 +72,4 @@ przycisk7.grid(row = 1, column = 3)
 glowne_okno.mainloop()
 
 
-glowne_okno.mainloop()
+
