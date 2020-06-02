@@ -18,3 +18,4 @@ signal = A_sig * np.sin(4 * np.pi * tone_freq * t)
 
 sd.play(signal, fs)
 sd.wait()
+####nie wiem co
