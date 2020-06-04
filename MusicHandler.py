@@ -36,4 +36,4 @@ class MusicHandler:
         return self.to_save
 
     def saveMergedSamples(self):  # export buffer to file
-        return True if self.to_save.export(self.savepath, format='wav') else False
+        return True if self.to_save.export(self.savepath+'.wav', format='wav') else False

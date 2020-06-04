@@ -4,6 +4,7 @@ def main():
     print("Witaj w sklejaku sampli!\nSklei on dla ciebie dostępne sample w dłuższy plik .wav")
     cont = True  # describes if we want to add more samples to merge
     outputpath = input('Zdefiniuj ścieżkę wyjściową (*.wav):\n')
+    outputpath = 'samples/'+outputpath
     musichandler = MusicHandler.MusicHandler(outputpath)  # creating object to work on
     musichandler.scanSavedSample()  # scanning for samples in folder "samples"
 
@@ -11,6 +12,8 @@ def main():
         print('Wpisz numer dostępnego sampla którego chcesz dokleić')
         musichandler.printSavedSamples()
         num = input('Numer sampla do dodania:\n')
+        if not isinstance(num, int):
+            num=-1
         while int(num) < 1 or int(num) > len(musichandler.returnSavedSamples()): # if given number is invalid
             num = input('Podaj POPRAWNY numer sampla do dodania:\n') # ask for valid number again
         musichandler.addSampleToMerge(int(num)-1)
