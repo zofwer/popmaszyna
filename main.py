@@ -15,7 +15,7 @@ def main():
             option = input('Wpisz 1 aby dokleić konkretnego sampla\nWpisz 2 aby dokleić losowe sample'
                            '\nWpisz q aby wyjść\n')
         if option == 'q':
-            cont=0
+            cont=False
             break
         elif option=='1':
             print('Wpisz numer dostępnego sampla którego chcesz dokleić')
@@ -54,12 +54,18 @@ def main():
         decision = input('Czy chcesz kontynować sklejanie?\nWpisz 1 aby kontynuować, wpisz cokolwiek innego by skończyć.\n')
         if decision != '1':
             cont = False
+            speed=input('Podaj jak zmienić tempo pliku wyjściowego. Wpisz 1 aby pozostało normalne.\n')
+            if speed !='1':
+                if float(speed) > 1:
+                    musichandler.speed_change(float(speed))
+                else:
+                    print('Niestety program nie zwalnia plików, tempo pozostanie normalne.')
             print('Koniec')
         else:
             print('Kontynuujemy')
 
     try:
-        musichandler.mergeSamples()  # merging chosen samples into one file
+
         musichandler.saveMergedSamples()  # exporting merged samples to output file
         print(f'Twoja sklejka została zapisana do ./{outputpath}')
     except Exception as e:
