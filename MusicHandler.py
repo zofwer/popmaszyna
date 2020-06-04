@@ -32,8 +32,13 @@ class MusicHandler:
     def mergeSamples(self):  # add all samples to buffer
         for sample in self.samples:
             self.to_save += AudioSegment.from_wav(sample)
-
         return self.to_save
+
+    # def speed_change(self, speed=1.0, sound):
+    #     new_framerate_sound = sound._spawn(sound.raw_data, overrides={
+    #         "frame_rate": int(sound.frame_rate * speed)
+    #     })
+    #     return new_framerate_sound(sound.frame_rate)
 
     def saveMergedSamples(self):  # export buffer to file
         return True if self.to_save.export(self.savepath+'.wav', format='wav') else False
