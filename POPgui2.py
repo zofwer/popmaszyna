@@ -8,7 +8,12 @@ from pygame import mixer
 import random
 import sounddevice as sd
 import numpy as np
-
+import platform
+system=platform.system() #checking the OS because windows uses different filepaths...
+if system == "Windows":
+    samplepath='samples\\'
+else:
+    samplepath='samples/'
 
 class PopmaszynaGUI(Frame,object):
 
@@ -92,22 +97,24 @@ obraz = Image.open("popmaszynapic.png")
 obrazTk = ImageTk.PhotoImage(obraz)
 background.create_image(350,200, image = obrazTk, anchor = CENTER)
 
-sample1 = "samples/Bamboo.wav"
-sample2 = "samples/Claves.wav"
-sample3 = "samples/gitara.wav"
-sample4 = "samples/elektryk.wav"
-sample5 = "samples/syntezator.wav"
-sample6 = "samples/dzwonki.wav"
-sample7 = "samples/Bass.wav"
-sample8 = "samples/dzwiek.wav"
-sample9 = "samples/dzwięk2.wav"
-sample10 = "samples/dzwiek3.wav"
-sample11 = "samples/piano.wav"
-sample12 = "samples/Shakuhachi.wav"
-sample13 = "samples/skrzypce.wav"
-sample14 = "samples/szczek.wav"
+sample1 = "Bamboo.wav"
+sample2 = "Claves.wav"
+sample3 = "gitara.wav"
+sample4 = "elektryk.wav"
+sample5 = "syntezator.wav"
+sample6 = "dzwonki.wav"
+sample7 = "Bass.wav"
+sample8 = "dzwiek.wav"
+sample9 = "dzwięk2.wav"
+sample10 = "dzwiek3.wav"
+sample11 = "piano.wav"
+sample12 = "Shakuhachi.wav"
+sample13 = "skrzypce.wav"
+sample14 = "szczek.wav"
 
 lista_sampli = [sample1, sample2, sample3,sample4, sample5, sample6, sample7, sample8, sample9, sample10, sample11, sample12, sample13, sample14]
+for i in range(len(lista_sampli)):
+    lista_sampli[i]=samplepath+lista_sampli[i]
 
 program = PopmaszynaGUI(glowne_okno)
 glowne_okno.mainloop()

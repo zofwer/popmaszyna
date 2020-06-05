@@ -2,9 +2,9 @@ import MusicHandler
 import random
 import sys
 import platform
-system=platform.system()
+system=platform.system() #checking the OS because windows uses different filepaths...
 if system == "Windows":
-    outputs_path='outputs\\'
+    output_path='outputs'
 else:
     output_path='outputs/'
 
