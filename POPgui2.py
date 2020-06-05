@@ -113,7 +113,7 @@ class PopmaszynaGUI(Frame,object):
 glowne_okno = Tk()
 background = Canvas(glowne_okno, width=700, height=400)
 background.pack()
-obraz = Image.open("/Users/zosia/Documents/POPMASZYNA/popmaszyna-master/popmaszynapic.png")
+obraz = Image.open("popmaszynapic.png")
 obrazTk = ImageTk.PhotoImage(obraz)
 background.create_image(350,200, image = obrazTk, anchor = CENTER)
 
