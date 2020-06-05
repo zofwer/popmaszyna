@@ -5,6 +5,7 @@ Stworzony przez nas program, operuje na dzwiękach z rozszerzeniem .wav. Składa
 Ta część program, również posiadająca GUI, pozwala odtwarzać sample przy pomocy guzików.  
 ### Sklejak sampli  
 Ta część programu jest programem terminalowym, który pozwala nam na składanie dostępnych sampli w plik .wav. Pozwala na sekwencyjne dodawanie wybranej ilości konkretnych lub losowych sampli.  
+Aby ten program działał poprawnie do folderu z projektem należy dodać folder o nazwie 'outputs'.
 
 ## Wkład autorek:
 
