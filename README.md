@@ -16,6 +16,7 @@ Ta część programu jest programem terminalowym, który pozwala nam na składan
 **Julia Naklicka** (Windows) </br>
 - odtwarzacz sampli *(prototyp)*
 - dobór sampli
+- GUI (rozmiar i kolor przycisków)
 - testowanie kodu (szczególnie kompatybilności z systemem Windows)
 - nagrywanie sampli z mikrofonu *(ostatecznie nie użyte w głównym programie)*
 - odtwarzacz z funkcją stop play *(ostatecznie nie użyte w głównym programie)*</br>
