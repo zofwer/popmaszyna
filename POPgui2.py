@@ -50,9 +50,9 @@ class PopmaszynaGUI(Frame,object):
 
     def akcja_main_window(self):
         main_window = Tk()
-        main_window.geometry("700x700")
+        main_window.geometry("1100x700")
         main_window.title("Popmaszyna")
-        przycisk1 = Button(main_window, text = "Bamboo", fg = "dark green", bg="sienna2", width=30, height=5,command = lambda: self.play_sample(0))
+        przycisk1 = Button(main_window, text = "Bamboo", fg = "dark green", bg = "sienna2", width = 30, height = 5, command = lambda: self.play_sample(0))
         przycisk1.grid(row = 1, column = 1)
         przycisk2 = Button(main_window, text = "Claves", fg = "navy", bg="tan4" , width=30, height=5,command = lambda: self.play_sample(1))
         przycisk2.grid(row = 2, column = 1)
@@ -80,7 +80,27 @@ class PopmaszynaGUI(Frame,object):
         przycisk13.grid(row = 1, column = 4)
         przycisk14 = Button(main_window, text = "szczek", fg = "magenta2",bg="cyan2" , width=30, height=5, command = lambda: self.play_sample(13))
         przycisk14.grid(row = 2, column = 4)
+        bottom_frame = Frame(main_window, bg = "plum1", width = 1100, height = 350)
+        bottom_frame.place(x = 1, y = 350)
+        label = Label(bottom_frame, text = "Wybierz z ilu różnych dźwięków ma\nskładać się twoja losowa melodia:")
+        label.place(x = 10, y = 15)
+        wartosc = IntVar()
+        przycisk_radio_random2 = Radiobutton(bottom_frame, text = "2 dźwięki", fg = "black", width = 15, height = 3, variable = wartosc, value = 1, command = lambda: self.play_random_melody(2))
+        przycisk_radio_random2.place(x = 10, y = 210)
+        przycisk_radio_random3 = Radiobutton(bottom_frame, text = "3 dźwięki", fg = "black", width = 15, height = 3, variable = wartosc, value = 2, command = lambda: self.play_random_melody(3))
+        przycisk_radio_random3.place(x = 10, y = 140)
+        przycisk_radio_random5 = Radiobutton(bottom_frame, text = "5 dźwięków", fg = "black", width = 15, height = 3, variable = wartosc, value = 3, command = lambda: self.play_random_melody(5))
+        przycisk_radio_random5.place(x = 10, y = 70)
+        przycisk_radio_random10 = Radiobutton(bottom_frame, text = "10 dźwięków", fg = "black", width = 15, height = 3, variable = wartosc, value = 4, command = lambda: self.play_random_melody(10))
+        przycisk_radio_random10.place(x = 10, y = 280)
 
+    def play_random_melody(self, number, fs = 44100, amplituda_sygnalu = 1, dlugosc_dzwieku = 1):
+        for i in range(number):
+            czestotliwosc_tonu = random.randint(100,500)
+            czas = np.arange(0, 1, 1/fs)
+            sygnal = amplituda_sygnalu * np.sin(2 * np.pi * czestotliwosc_tonu * czas)
+            sd.play(sygnal)
+            sd.wait()
 
     def play_sample(self, numer):
         global lista_sampli
@@ -93,7 +113,7 @@ class PopmaszynaGUI(Frame,object):
 glowne_okno = Tk()
 background = Canvas(glowne_okno, width=700, height=400)
 background.pack()
-obraz = Image.open("popmaszynapic.png")
+obraz = Image.open("/Users/zosia/Documents/POPMASZYNA/popmaszyna-master/popmaszynapic.png")
 obrazTk = ImageTk.PhotoImage(obraz)
 background.create_image(350,200, image = obrazTk, anchor = CENTER)
 
