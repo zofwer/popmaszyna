@@ -80,6 +80,11 @@ class PopmaszynaGUI(Frame,object):
         przycisk13.grid(row = 1, column = 4)
         przycisk14 = Button(main_window, text = "szczek", fg = "magenta2",bg="cyan2" , width=30, height=5, command = lambda: self.play_sample(13))
         przycisk14.grid(row = 2, column = 4)
+        przycisk15 = Button(main_window, text = "trąba", fg = "magenta2",bg="navy" , width=30, height=5, command = lambda: self.play_sample(14))
+        przycisk15.grid(row = 3, column = 4)
+        przycisk16 = Button(main_window, text = "taiko", fg = "dark green",bg="tan4" , width=30, height=5, command = lambda: self.play_sample(15))
+        przycisk16.grid(row = 4, column = 4)
+        
         bottom_frame = Frame(main_window, bg = "plum1", width = 1100, height = 350)
         bottom_frame.place(x = 1, y = 350)
         label = Label(bottom_frame, text = "Wybierz z ilu różnych dźwięków ma\nskładać się twoja losowa melodia:")
@@ -131,8 +136,10 @@ sample11 = "piano.wav"
 sample12 = "Shakuhachi.wav"
 sample13 = "skrzypce.wav"
 sample14 = "szczek.wav"
+sample15 = "troba.wav"
+sample16 = "Taiko.wav"
 
-lista_sampli = [sample1, sample2, sample3,sample4, sample5, sample6, sample7, sample8, sample9, sample10, sample11, sample12, sample13, sample14]
+lista_sampli = [sample1, sample2, sample3,sample4, sample5, sample6, sample7, sample8, sample9, sample10, sample11, sample12, sample13, sample14, sample15, sample16]
 for i in range(len(lista_sampli)):
     lista_sampli[i]=samplepath+lista_sampli[i]
 
