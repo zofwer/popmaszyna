@@ -1,1 +1,3 @@
-<tu będzie readme>
+# POPMASZYNA
+
+### soon will drop some code
