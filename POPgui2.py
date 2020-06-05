@@ -1,4 +1,5 @@
 import tkinter as tk
+import os
 from tkinter import *
 from PIL import Image, ImageTk, ImageFilter
 from tkinter import messagebox
@@ -16,13 +17,22 @@ class PopmaszynaGUI(Frame,object):
         self.master.geometry("700x400")
         self.pack()
         self.start_button()
+        self.start_sklejak_button()
         self.akcja_menu()
         mixer.init()
 
+    def lauch_sklejak(self):
+        os.system('python main.py')
+
     def start_button(self):
         global obrazTk
-        przycisk1 = Button(background, text = "START!", fg = "red", command = self.akcja_main_window)
-        przycisk1.place(x = 310, y = 300)
+        przycisk1 = Button(background, text = "Odtwarzacz sampli", fg = "red", command = self.akcja_main_window)
+        przycisk1.place(x = 200, y = 300)
+
+    def start_sklejak_button(self):
+        global obrazTk
+        przycisk2 = Button(background, text="Sklejak sampli", fg="red", command=self.lauch_sklejak)
+        przycisk2.place(x=400, y=300)
 
     def akcja_menu(self):
         pasek_menu = Menu(glowne_okno)

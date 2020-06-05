@@ -1,5 +1,6 @@
 import MusicHandler
 import random
+import sys
 
 def main():
     print("Witaj w sklejaku sampli!\nSklei on dla ciebie dostępne sample w dłuższy plik .wav")
@@ -68,8 +69,10 @@ def main():
 
         musichandler.saveMergedSamples()  # exporting merged samples to output file
         print(f'Twoja sklejka została zapisana do ./{outputpath}')
+        sys.exit()
     except Exception as e:
         print(e)
+        sys.exit()
 
 
 if __name__ == '__main__':

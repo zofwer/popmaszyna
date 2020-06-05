@@ -8,7 +8,6 @@ class MusicHandler:
         # saved to file after we add samples to each other
         self.savepath = os.path.normpath(savepath)
         self.saved_samples = []
-     #   self.samples = []
         self.to_save = AudioSegment.empty()
 
     def scanSavedSample(
@@ -27,11 +26,6 @@ class MusicHandler:
 
     def addSampleToMerge(self, num):  # append sample described as number in saved_samples list to samples
         self.to_save += AudioSegment.from_wav(self.saved_samples[num])
-    #
-    # def mergeSamples(self):  # add all samples to buffer
-    #     for sample in self.samples:
-    #         self.to_save += AudioSegment.from_wav(sample)
-    #     return self.to_save
 
     def speed_change(self, speed=1.0):
         self.to_save = self.to_save.speedup(playback_speed=speed)
