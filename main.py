@@ -46,7 +46,10 @@ def main():
 
             if how_many != 0:
                 for i in range(int(how_many)):
-                    musichandler.addSampleToMerge(int(num)-1) # adding sample(s)
+                    try:
+                        musichandler.addSampleToMerge(int(num)-1) # adding sample(s)
+                    except:
+                        continue
         elif option == '2':
             how_many = input('Ile losowych sampli dodać? Wpisz 0 aby anulować:\n')
             if not how_many.isdigit():
@@ -57,7 +60,12 @@ def main():
                     how_many = -1
             if how_many != 0:
                 for i in range(int(how_many)):
-                    musichandler.addSampleToMerge(random.randint(0,len(musichandler.returnSavedSamples())-1))  # adding sample(s)
+                    try:
+                        musichandler.addSampleToMerge(random.randint(0,len(musichandler.returnSavedSamples())-1))  # adding sample(s)
+                        sys.exit()
+                    except:
+                        continue
+
 
         decision = input('Czy chcesz kontynować sklejanie?\nWpisz 1 aby kontynuować, wpisz cokolwiek innego by skończyć.\n')
         if decision != '1':
