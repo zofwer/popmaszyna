@@ -9,6 +9,7 @@ import random
 import sounddevice as sd
 import numpy as np
 
+
 class PopmaszynaGUI(Frame,object):
 
     def __init__(self,master):

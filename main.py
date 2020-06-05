@@ -1,12 +1,19 @@
 import MusicHandler
 import random
 import sys
+import platform
+system=platform.system()
+if system == "Windows":
+    outputs_path='outputs\\'
+else:
+    output_path='outputs/'
+
 
 def main():
     print("Witaj w sklejaku sampli!\nSklei on dla ciebie dostępne sample w dłuższy plik .wav")
     cont = True  # describes if we want to add more samples to merge
     outputpath = input('Zdefiniuj ścieżkę wyjściową (*.wav):\n')
-    outputpath = 'outputs/'+outputpath
+    outputpath = output_path+outputpath
     musichandler = MusicHandler.MusicHandler(outputpath)  # creating object to work on
     musichandler.scanSavedSample()  # scanning for samples in folder "samples"
 
@@ -68,7 +75,7 @@ def main():
     try:
 
         musichandler.saveMergedSamples()  # exporting merged samples to output file
-        print(f'Twoja sklejka została zapisana do ./{outputpath}')
+        print(f'Twoja sklejka została zapisana do {outputpath}')
         sys.exit()
     except Exception as e:
         print(e)
